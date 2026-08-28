@@ -1,0 +1,87 @@
+# RePaper AI — Giving Every Sheet a Second Life
+
+Every day, schools throw away paper that isn't actually useless.
+
+A worksheet might have printing on one side, but an entire blank section on the other. A damaged sheet might still contain enough usable paper for several smaller notes. And a page with writing on it might still have a completely usable back.
+
+Today, our usual choices are simple: throw it away or recycle it.
+
+But what if we could give that paper another life **before** it reaches the recycling bin?
+
+That's the problem we want to solve.
+
+We are creating **RePaper AI — an intelligent paper reuse system designed for schools.**
+
+Instead of simply looking for blank areas, RePaper AI asks a more important question:
+
+**"What is the most useful way to reuse this sheet?"**
+
+Here's how it works.
+
+First, discarded paper is placed into the system. A camera scans the sheet, and computer vision analyzes its condition.
+
+The system identifies areas that are:
+
+* printed,
+* handwritten,
+* blank,
+* damaged,
+* or potentially reusable.
+
+But that's only the beginning.
+
+Our AI then considers what the school actually needs.
+
+For example, imagine the school has a high demand for scratch paper but doesn't need many flashcards.
+
+The system could analyze a discarded worksheet and determine that the best option is to cut it into two scratch sheets.
+
+Another sheet might have several smaller usable areas. Instead of wasting those areas, the system could determine that they are better suited to memo sheets or flashcards.
+
+And if a sheet doesn't contain enough usable material, the system doesn't force it to be reused.
+
+It sends it to recycling.
+
+This creates a simple process:
+
+**Discarded paper → Scan → Understand → Optimize → Reuse → Recycle what remains.**
+
+The key innovation is that we're not simply detecting waste.
+
+We're making an intelligent decision about the **second life of that waste**.
+
+Our system can optimize several factors at once:
+
+**How much paper can be recovered?**
+
+**What does the school need?**
+
+**How much cutting waste will be created?**
+
+And:
+
+**What is the most useful outcome for this particular sheet?**
+
+We also want RePaper AI to learn from the school itself.
+
+A dashboard could show how much paper has been processed, how much has been successfully reused, what types of paper are most needed, and how much material has been diverted from recycling.
+
+We have already started developing a software prototype that demonstrates this concept: a user can upload a paper image, simulate school demand, analyze the sheet, and receive a proposed reuse decision and cutting layout.
+
+Our next step is to test the system using real discarded paper from a school, improve the computer vision model, and connect the software to a small physical cutting prototype.
+
+We believe this approach is practical because we aren't trying to replace the entire paper recycling industry.
+
+We're targeting one specific opportunity:
+
+**the useful life of paper that still has value before it becomes waste.**
+
+Because recycling is important.
+
+But recycling shouldn't always be the first step.
+
+Sometimes, the best waste is the waste we never have to create.
+
+**RePaper AI doesn't just recycle paper.**
+
+**It gives paper a second life.**
