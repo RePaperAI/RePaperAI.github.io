@@ -4,13 +4,13 @@ Dependency-free browser prototype for an intelligent paper reuse system.
 
 Open `index.html`, upload a paper image or use the sample, adjust school demand, and print the proposed layout.
 
-The scanner reads uploaded pixels through a browser canvas and computes deterministic blank, marked, and edge-damage estimates in `scanner.js`. It also labels scans as blank, printed, handwritten, or damaged. The lightweight heuristic is suitable for a prototype; a production pilot should replace it with a validated segmentation/model pipeline.
+The scanner uploads images to Flask, where `scanner.py` computes deterministic blank, marked, and edge-damage estimates. It also labels scans as blank, printed, handwritten, or damaged. The lightweight heuristic is suitable for a prototype; a production pilot should replace it with a validated segmentation/model pipeline.
 
 Run the fixture tests with `npm test`.
 
 ## Optional Python scanner
 
-The browser wrapper in `python-wrapper.js` can call the Python implementation in `app.py`. Install dependencies with `pip install -r requirements.txt`, run `python app.py`, and open `http://127.0.0.1:5000/scanner.html`.
+Install dependencies with `pip install -r requirements.txt`, run `python app.py`, and open `http://127.0.0.1:5000/scanner.html`.
 
 ## Run the Python version
 
