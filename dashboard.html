@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>RePaper AI Dashboard</title>
-  <link rel="stylesheet" href="dashboard-scanner.css" />
+  <link rel="stylesheet" href="dashboard-controls.css" />
 
   <style>
     :root {
@@ -1078,14 +1078,9 @@
           <div class="card-title">
             <h2>CURRENT SHEET ANALYSIS</h2>
             <span class="info">i</span>
+            <button class="scan-trigger" type="button" onclick="document.getElementById('fileInput').click()">Scan new sheet</button>
+            <input id="fileInput" type="file" accept="image/*" hidden />
           </div>
-
-          <label class="dashboard-upload" id="dropzone" for="fileInput">
-            <input id="fileInput" type="file" accept="image/*" />
-            <span id="dropContent"><strong>Upload a sheet to analyze</strong><small>Choose an image or drag it here · JPG, PNG up to 10 MB</small></span>
-            <img id="preview" alt="Uploaded sheet preview" hidden />
-          </label>
-          <div class="dashboard-scan-status" id="analysis"><span>Python scanner</span><strong id="confidence">Ready</strong></div>
 
           <div class="analysis-layout">
 
