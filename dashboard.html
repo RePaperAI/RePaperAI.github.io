@@ -1033,6 +1033,41 @@
       .grid { grid-template-rows: 482px; }
       .lower { height: 257px; }
     }
+
+    /* Match the reference dashboard's clean, compact UI typography. */
+    .app,
+    .app button,
+    .app input,
+    .app output {
+      font-family: Arial, Helvetica, sans-serif;
+      letter-spacing: 0;
+    }
+
+    .app h1,
+    .app h2,
+    .app h3,
+    .app strong,
+    .app b {
+      font-weight: 700;
+    }
+
+    @media (min-width: 1251px) {
+      .analysis-layout { grid-template-columns: 280px minmax(0, 1fr); }
+      .paper { width: 280px; height: 416px; aspect-ratio: auto; }
+      .worksheet-image { width: 100%; height: 100%; }
+      .cutting-plan-image { width: 284px; max-width: 100%; max-height: 365px; }
+      .card-title h2 { font-size: 15px; }
+      .metric-label { font-size: 12px; }
+      .legend { font-size: 11px; }
+      .stat-left { font-size: 13px; }
+      .stat-row strong { font-size: 15px; }
+      .cut-summary strong { font-size: 20px; }
+      .cut-summary span { font-size: 10px; }
+      .cut-summary-label { font-size: 11px; }
+      .demand-row { font-size: 13px; }
+      .demand-row output { font-size: 12px; }
+      .process-step strong { font-size: 10px; }
+    }
   </style>
 </head>
 
