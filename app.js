@@ -41,5 +41,25 @@ async function acceptFile(file) {
 const fileInput = $('fileInput'); if (fileInput) fileInput.addEventListener('change', event => acceptFile(event.target.files[0]));
 const dropzone = $('dropzone'); if (dropzone) { dropzone.addEventListener('dragover', event => { event.preventDefault(); dropzone.classList.add('dragging'); }); dropzone.addEventListener('dragleave', () => dropzone.classList.remove('dragging')); dropzone.addEventListener('drop', event => { event.preventDefault(); dropzone.classList.remove('dragging'); acceptFile(event.dataTransfer.files[0]); }); }
 const sampleBtn = $('sampleBtn'); if (sampleBtn) sampleBtn.addEventListener('click', () => { const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="600" height="800"><rect width="100%" height="100%" fill="white"/><text x="55" y="90" font-family="Arial" font-size="22" fill="#555">SCIENCE WORKSHEET</text><path d="M55 135h460M55 175h360M55 215h410M55 255h300" stroke="#aab6b0" stroke-width="5"/></svg>`; acceptFile(new File([svg], 'sample.svg', { type: 'image/svg+xml' })); });
-document.querySelectorAll('input[type=range][data-demand]').forEach(input => input.addEventListener('input', event => { const output = event.target.nextElementSibling; if (output) { output.value = event.target.value; output.textContent = `${event.target.value}%`; } const blank = Number.parseInt(($('blankStat') || {}).textContent, 10); if (hasScan && Number.isFinite(blank)) recommend(blank); }));
+function updateDemandSummary() {
+  const labels = { sticky: 'Sticky Notes', scratch: 'Scratch Sheets', memo: 'Memo Sheets', flashcards: 'Flashcards' };
+  const rows = [...document.querySelectorAll('.demand-card input[type=range][data-demand]')]
+    .map(input => ({ name: input.dataset.demand, value: Number(input.value) }))
+    .sort((a, b) => b.value - a.value);
+  if (!rows.length) return;
+  const top = rows[0];
+  const level = top.value >= 70 ? 'High Demand' : top.value >= 40 ? 'Medium Demand' : 'Low Demand';
+  const highDemand = rows.filter(row => row.value >= 70);
+  const displayed = highDemand.length ? highDemand.slice(0, 2) : rows.slice(0, 2);
+  const second = displayed[1];
+  setText('demandSummaryPrimary', labels[top.name]);
+  setText('demandSummarySecondary', second ? labels[second.name] : '');
+  setText('demandSummaryLevel', level);
+  const connector = $('demandSummaryConnector');
+  if (connector) connector.hidden = !second;
+  const secondary = $('demandSummarySecondary');
+  if (secondary) secondary.hidden = !second;
+}
+document.querySelectorAll('input[type=range][data-demand]').forEach(input => input.addEventListener('input', event => { const output = event.target.nextElementSibling; if (output) { output.value = event.target.value; output.textContent = `${event.target.value}%`; } updateDemandSummary(); const blank = Number.parseInt(($('blankStat') || {}).textContent, 10); if (hasScan && Number.isFinite(blank)) recommend(blank); }));
+updateDemandSummary();
 const printBtn = $('printBtn'); if (printBtn) printBtn.addEventListener('click', () => window.print());
