@@ -982,11 +982,11 @@
     .worksheet-image.missing { display: none; }
     .paper:has(.worksheet-image:not(.missing)) > :not(.worksheet-image) { display: none; }
     .cutting-plan { padding: 8px; background: #f7f8f7; }
-    .cutting-plan { background: #f64251; border: 3px solid #111; border-radius: 0; overflow: hidden; }
-    .cutting-plan-image { display: block; width: 92%; max-height: 360px; height: auto; object-fit: contain; position: relative; z-index: 5; margin: 0 auto; }
+    .cutting-plan { background: #fff; border: 0; border-radius: 0; overflow: visible; }
+    .cutting-plan-image { display: block; width: 92%; max-height: 360px; height: auto; object-fit: contain; position: relative; z-index: 5; margin: 0 auto; border: 3px solid #111; }
     .cutting-plan-image.missing { display: none; }
     .cutting-plan:has(.cutting-plan-image:not(.missing)) > .cut-sheet { display: none; }
-    .cutting-plan:has(.cutting-plan-image:not(.missing)) { padding: 8px 8px 10px; }
+    .cutting-plan:has(.cutting-plan-image:not(.missing)) { padding: 0; }
     .cut-summary-label { color: #111; font-size: 10px; margin: 5px 0 0; }
     .cutting-plan:has(.cutting-plan-image:not(.missing)) .cut-summary { margin-top: 3px; }
     .cutting-plan:has(.cutting-plan-image:not(.missing)) .cut-summary div { background: transparent; border: 0; border-right: 1px solid rgba(17,17,17,.14); border-radius: 0; padding: 2px 3px; }
