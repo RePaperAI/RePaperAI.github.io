@@ -977,6 +977,14 @@
     .card-title { margin-bottom: 11px; }
     .card-title h2 { font-size: 14px; }
     .analysis-layout { grid-template-columns: 1.35fr .75fr; gap: 14px; align-items: start; }
+    .analysis-layout > div:last-child { padding: 8px 4px 0; }
+    .analysis-layout .metric-label { text-align: center; color: #151a17; font-weight: 500; }
+    .analysis-layout .big-number { text-align: center; color: var(--green); font-size: 38px; margin: 7px 0 24px; }
+    .analysis-layout .progress { height: 10px; margin: 0 0 28px; }
+    .analysis-layout .legend { display: flex; flex-direction: column; justify-content: flex-start; gap: 18px; font-size: 13px; }
+    .analysis-layout .legend-item { display: grid; grid-template-columns: 18px 1fr auto; gap: 9px; align-items: center; }
+    .analysis-layout .legend-dot { width: 16px; height: 16px; border-radius: 3px; }
+    .analysis-layout .legend-item > span:last-child { font-weight: 700; color: #151a17; }
     .paper { min-height: 0; height: auto; aspect-ratio: 987 / 1457; align-self: start; padding: 8px; border: 2px solid #111; border-radius: 0; background: #fff; }
     .worksheet-image { position: relative; inset: auto; display: block; width: 100%; height: 100%; object-fit: contain; background: #fff; z-index: 5; }
     .worksheet-image.missing { display: none; }
@@ -1296,11 +1304,11 @@
                 </div>
 
                 <div class="big-number" id="blankStat">
-                  78%
+                  65%
                 </div>
 
                 <div class="progress">
-                  <span id="meterFill" style="width:78%"></span>
+                  <span id="meterFill" style="width:65%"></span>
                 </div>
 
               </div>
@@ -1309,38 +1317,21 @@
 
                 <div class="legend-item">
                   <span class="legend-dot green"></span>
-                  Usable <span id="usableLegend">78%</span>
+                  <span class="legend-label">Usable Area</span><span id="usableLegend">65%</span>
                 </div>
 
                 <div class="legend-item">
                   <span class="legend-dot yellow"></span>
-                  Uncertain <span id="printedStat">14%</span>
+                  <span class="legend-label">Uncertain Area</span><span id="printedStat">35%</span>
                 </div>
 
                 <div class="legend-item">
                   <span class="legend-dot red"></span>
-                  Damaged <span id="damageStat">8%</span>
+                  <span class="legend-label">Damaged Area</span><span id="damageStat">0%</span>
                 </div>
 
               </div>
 
-
-              <div class="recommendation">
-
-                <div class="recommendation-title">
-                  💡 AI RECOMMENDATION
-                </div>
-
-                <p>
-                  <strong>Best Use:</strong> Sticky Notes
-                </p>
-
-                <p style="margin-top:5px;">
-                  <strong>Reason:</strong> High demand for sticky
-                  notes. Optimal size and waste minimisation.
-                </p>
-
-              </div>
 
             </div>
 
