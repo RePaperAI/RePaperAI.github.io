@@ -1089,6 +1089,19 @@
       font-weight: 700;
     }
 
+    #dashboardHome,
+    #currentSheetCard,
+    #cuttingPlanCard,
+    #statisticsCard,
+    #processCard,
+    #schoolDemandCard { scroll-margin-top: 102px; }
+
+    .card { transition: border-color .2s ease, box-shadow .2s ease, transform .2s ease; }
+    .card:hover { border-color: #c1d8c5; box-shadow: 0 10px 24px rgba(39, 104, 49, .08); }
+    .process-step { transition: transform .2s ease, color .2s ease; cursor: pointer; }
+    .process-step:hover { transform: translateY(-4px); color: var(--green-dark); }
+    .demand-row input[type="range"]:focus { outline: 3px solid rgba(53, 185, 74, .2); outline-offset: 4px; }
+
     .sidebar-bottom { border-top: 0; padding-top: 0; }
     .sustainability-box { border: 0; padding: 0; margin: 0; text-align: center; }
     .sustainability-box .earth { width: 78px; height: 78px; margin: 0 auto 13px; color: #69df75; }
@@ -1128,42 +1141,42 @@
     <div>
       <nav class="nav">
 
-        <button class="nav-item active">
+        <button class="nav-item active" type="button" data-target="dashboardHome">
           <span class="nav-icon">⌂</span>
           <span>Dashboard</span>
         </button>
 
-        <button class="nav-item">
+        <button class="nav-item" type="button" data-target="currentSheetCard">
           <span class="nav-icon">▤</span>
           <span>Current Sheet</span>
         </button>
 
-        <button class="nav-item">
+        <button class="nav-item" type="button" data-target="statisticsCard">
           <span class="nav-icon">↗</span>
           <span>Analytics</span>
         </button>
 
-        <button class="nav-item">
+        <button class="nav-item" type="button" data-target="cuttingPlanCard">
           <span class="nav-icon">▣</span>
           <span>Products</span>
         </button>
 
-        <button class="nav-item">
+        <button class="nav-item" type="button" data-target="schoolDemandCard">
           <span class="nav-icon">♧</span>
           <span>School Demand</span>
         </button>
 
-        <button class="nav-item">
+        <button class="nav-item" type="button" data-target="processCard">
           <span class="nav-icon">☷</span>
           <span>Machine Status</span>
         </button>
 
-        <button class="nav-item">
+        <button class="nav-item" type="button" data-target="dashboardHome">
           <span class="nav-icon">◴</span>
           <span>History</span>
         </button>
 
-        <button class="nav-item">
+        <button class="nav-item" type="button" data-target="modal">
           <span class="nav-icon">⚙</span>
           <span>Settings</span>
         </button>
@@ -1246,13 +1259,13 @@
     <!-- CONTENT -->
     <section class="content">
 
-      <div class="grid">
+      <div class="grid" id="dashboardHome">
 
         <!-- =====================
              CURRENT SHEET ANALYSIS
         ====================== -->
 
-        <section class="card">
+        <section class="card" id="currentSheetCard">
 
           <div class="card-title">
             <h2>CURRENT SHEET ANALYSIS</h2>
@@ -1355,7 +1368,7 @@
              CUTTING PLAN
         ====================== -->
 
-        <section class="card">
+        <section class="card" id="cuttingPlanCard">
 
           <div class="card-title">
             <h2>CUTTING PLAN PREVIEW</h2>
@@ -1440,7 +1453,7 @@
              OVERALL STATISTICS
         ====================== -->
 
-        <section class="card">
+        <section class="card" id="statisticsCard">
 
           <div class="card-title">
             <h2>OVERALL STATISTICS</h2>
@@ -1537,7 +1550,7 @@
 
         <!-- PROCESS FLOW -->
 
-        <section class="card">
+        <section class="card" id="processCard">
 
           <div class="card-title">
 
@@ -1633,7 +1646,7 @@
 
         <!-- SCHOOL DEMAND -->
 
-        <section class="card demand-card">
+        <section class="card demand-card" id="schoolDemandCard">
 
           <div class="card-title">
             <h2>SCHOOL DEMAND</h2>
@@ -1828,6 +1841,14 @@
         .forEach(nav => nav.classList.remove("active"));
 
       item.classList.add("active");
+
+      const targetId = item.dataset.target;
+      if (targetId === "modal") {
+        openModal();
+        return;
+      }
+      const target = document.getElementById(targetId);
+      if (target) target.scrollIntoView({ behavior: "smooth", block: "start" });
 
     });
 
