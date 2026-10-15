@@ -1089,6 +1089,13 @@
       font-weight: 700;
     }
 
+    .sidebar-bottom { border-top: 0; padding-top: 0; }
+    .sustainability-box { border: 0; padding: 0; margin: 0; text-align: center; }
+    .sustainability-box .earth { width: 78px; height: 78px; margin: 0 auto 13px; color: #69df75; }
+    .sustainability-box .earth svg { display: block; width: 100%; height: 100%; }
+    .sustainability-box h4 { margin-bottom: 7px; color: #69df75; font-size: 13px; letter-spacing: .4px; }
+    .sustainability-box p { color: #69df75; font-size: 10px; line-height: 1.2; white-space: nowrap; }
+
     @media (min-width: 1251px) {
       .analysis-layout { grid-template-columns: 280px minmax(0, 1fr); }
       .paper { width: 280px; height: 416px; aspect-ratio: auto; }
@@ -1167,9 +1174,15 @@
     <div class="sidebar-bottom">
 
       <div class="sustainability-box">
-        <div class="earth">🌎</div>
+        <div class="earth" aria-label="Sustainable recycling icon">
+          <svg viewBox="0 0 88 88" role="img" aria-hidden="true">
+            <circle cx="39" cy="42" r="27" fill="none" stroke="currentColor" stroke-width="3"/>
+            <path d="M14 37c8 4 16 5 23 3 7-2 10-8 10-14M18 55c8-2 14-7 16-14M49 16c-2 8 1 15 8 20 6 4 10 10 8 18M40 69c-2-8-8-12-15-16M57 27c-7 4-10 10-8 16 2 6 8 9 15 10" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+            <path d="M57 67c8-1 16-6 20-14 1 9-4 17-12 20-5 2-10 1-14-1Z" fill="none" stroke="currentColor" stroke-width="3" stroke-linejoin="round"/>
+          </svg>
+        </div>
         <h4>SUSTAINABLE</h4>
-        <p>REUSE • REDUCE • RECYCLE</p>
+        <p>REUSE &bull; REDUCE &bull; RECYCLE</p>
       </div>
 
     </div>
