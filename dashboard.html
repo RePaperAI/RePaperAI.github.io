@@ -1036,30 +1036,14 @@
     .stat-left { font-size: 12px; }
     .demand-list { gap: 16px; }
     .demand-row { display: grid; grid-template-columns: 1fr 126px 34px; gap: 10px; align-items: center; font-size: 12px; }
-    .demand-row { grid-template-columns: 110px 126px 34px 34px; gap: 10px; }
-    .row-switch { display: flex; align-items: center; justify-content: center; cursor: pointer; transform: translateX(-14px); }
-    .row-switch input { position: absolute; opacity: 0; pointer-events: none; }
-    .row-switch .switch-track { position: relative; display: block; width: 30px; height: 17px; border-radius: 999px; background: #cbd2ce; transition: background .2s ease; }
-    .row-switch .switch-track::after { content: ""; position: absolute; width: 13px; height: 13px; top: 2px; left: 2px; border-radius: 50%; background: #fff; box-shadow: 0 1px 3px rgba(0,0,0,.2); transition: transform .2s ease; }
-    .row-switch input:checked + .switch-track { background: var(--green); }
-    .row-switch input:checked + .switch-track::after { transform: translateX(13px); }
-    .row-switch input:focus-visible + .switch-track { outline: 3px solid rgba(53,185,74,.22); outline-offset: 3px; }
-    .demand-column-labels { display: grid; grid-template-columns: 110px 126px 34px 34px; gap: 10px; margin: 0 0 4px; color: #4c5952; font-size: 11px; font-weight: 600; }
-    .demand-column-labels span { grid-column: 4; justify-self: center; text-align: center; white-space: nowrap; transform: translateX(30px); }
+    .demand-row { grid-template-columns: 1fr 126px 34px; gap: 10px; }
     .demand-row input[type="range"] { width: 100%; height: 7px; margin: 0; accent-color: var(--green); cursor: pointer; }
-    .demand-row output { color: var(--green-dark); font-size: 11px; font-weight: 700; text-align: left; transform: translateX(-8px); }
+    .demand-row output { color: var(--green-dark); font-size: 11px; font-weight: 700; text-align: right; }
     .demand-summary { margin: 20px 0 0; font-size: 12px; line-height: 1.35; }
     .demand-summary strong:first-child { color: #1eaa45; }
     .demand-summary strong:nth-child(2) { color: #3e4bd0; }
     .demand-summary b { color: #1eaa45; }
     .demand-card .adjust-btn { display: none; }
-    .blank-toggle { display: inline-flex; align-items: center; gap: 8px; color: #4c5952; font-size: 11px; white-space: nowrap; cursor: pointer; }
-    .blank-toggle input { position: absolute; opacity: 0; pointer-events: none; }
-    .blank-toggle .switch-track { position: relative; width: 34px; height: 19px; border-radius: 999px; background: #cbd2ce; transition: background .2s ease; }
-    .blank-toggle .switch-track::after { content: ""; position: absolute; width: 15px; height: 15px; top: 2px; left: 2px; border-radius: 50%; background: #fff; box-shadow: 0 1px 3px rgba(0,0,0,.2); transition: transform .2s ease; }
-    .blank-toggle input:checked + .switch-track { background: var(--green); }
-    .blank-toggle input:checked + .switch-track::after { transform: translateX(15px); }
-    .blank-toggle input:focus-visible + .switch-track { outline: 3px solid rgba(53,185,74,.22); outline-offset: 3px; }
     .lower { gap: 13px; margin-top: 13px; grid-template-columns: 1.75fr .95fr; }
     .process-flow { padding: 10px 0 15px; }
     .process-icon { border: 0; background: transparent; font-size: 25px; }
@@ -1546,7 +1530,7 @@
             <div style="display:flex; align-items:center; justify-content:space-between;">
 
               <div class="reuse-rate">
-                65.6%
+                54%
               </div>
 
               <div class="reuse-chart">
@@ -1678,36 +1662,30 @@
           </div>
 
 
-          <div class="demand-column-labels"><span>Both sides blank</span></div>
-
           <div class="demand-list">
 
             <div class="demand-row">
               <span>Sticky Notes</span>
               <input type="range" min="0" max="100" value="69" data-demand="sticky" aria-label="Sticky Notes demand" />
               <output>69%</output>
-              <label class="row-switch" for="bothSidesBlankSticky"><input id="bothSidesBlankSticky" type="checkbox" aria-label="Both side Blank for Sticky Notes" /><span class="switch-track" aria-hidden="true"></span></label>
             </div>
 
             <div class="demand-row">
               <span>Scratch Sheets</span>
               <input type="range" min="0" max="100" value="100" data-demand="scratch" aria-label="Scratch Sheets demand" />
               <output>100%</output>
-              <label class="row-switch" for="bothSidesBlankScratch"><input id="bothSidesBlankScratch" type="checkbox" aria-label="Both side Blank for Scratch Sheets" /><span class="switch-track" aria-hidden="true"></span></label>
             </div>
 
             <div class="demand-row">
               <span>Memo Sheets</span>
               <input type="range" min="0" max="100" value="50" data-demand="memo" aria-label="Memo Sheets demand" />
               <output>50%</output>
-              <label class="row-switch" for="bothSidesBlankMemo"><input id="bothSidesBlankMemo" type="checkbox" aria-label="Both side Blank for Memo Sheets" /><span class="switch-track" aria-hidden="true"></span></label>
             </div>
 
             <div class="demand-row">
               <span>Flashcards</span>
               <input type="range" min="0" max="100" value="25" data-demand="flashcards" aria-label="Flashcards demand" />
               <output>25%</output>
-              <label class="row-switch" for="bothSidesBlankFlashcards"><input id="bothSidesBlankFlashcards" type="checkbox" aria-label="Both side Blank for Flashcards" /><span class="switch-track" aria-hidden="true"></span></label>
             </div>
 
           </div>
