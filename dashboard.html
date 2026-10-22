@@ -817,14 +817,14 @@
       margin-bottom: 13px;
     }
 
-    .demand-input label {
+    .demand-input > label {
       display: flex;
       justify-content: space-between;
       font-size: 11px;
       margin-bottom: 6px;
     }
 
-    .demand-input input {
+    .demand-input > input[type="range"] {
       width: 100%;
       accent-color: var(--green);
     }
@@ -1090,9 +1090,9 @@
       font-weight: 700;
     }
 
-    .settings-slider-row { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 12px; align-items: center; }
+    .settings-slider-row { display: grid; grid-template-columns: minmax(0, 1fr) 122px; gap: 12px; align-items: center; }
     .settings-slider-row > input[type="range"] { width: 100%; accent-color: var(--green); }
-    .settings-switch { display: inline-flex; align-items: center; gap: 7px; color: #4c5952; font-size: 10px; white-space: nowrap; cursor: pointer; }
+    .settings-switch { display: inline-flex; align-items: center; justify-content: flex-start; gap: 7px; min-width: 0; margin: 0; color: #4c5952; font-size: 10px; white-space: nowrap; cursor: pointer; }
     .settings-switch input { position: absolute; opacity: 0; pointer-events: none; }
     .settings-switch i { position: relative; display: block; width: 31px; height: 17px; border-radius: 999px; background: #cbd2ce; transition: background .2s ease; }
     .settings-switch i::after { content: ""; position: absolute; width: 13px; height: 13px; top: 2px; left: 2px; border-radius: 50%; background: #fff; box-shadow: 0 1px 3px rgba(0,0,0,.2); transition: transform .2s ease; }
