@@ -62,7 +62,7 @@ function updateDemandSummary() {
         productLine.append(document.createTextNode(separator));
       }
       const product = document.createElement('strong');
-      product.className = `demand-summary-product${index === 0 ? ' primary' : ''}`;
+      product.className = `demand-summary-product demand-${row.name}${index === 0 ? ' primary' : ''}`;
       product.textContent = labels[row.name];
       productLine.append(product);
     });
