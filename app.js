@@ -60,6 +60,6 @@ function updateDemandSummary() {
   const secondary = $('demandSummarySecondary');
   if (secondary) secondary.hidden = !second;
 }
-document.querySelectorAll('input[type=range][data-demand]').forEach(input => input.addEventListener('input', event => { const output = event.target.nextElementSibling; if (output) { output.value = event.target.value; output.textContent = `${event.target.value}%`; } updateDemandSummary(); const blank = Number.parseInt(($('blankStat') || {}).textContent, 10); if (hasScan && Number.isFinite(blank)) recommend(blank); }));
+document.querySelectorAll('input[type=range][data-demand]').forEach(input => input.addEventListener('input', event => { const output = event.target.nextElementSibling; if (output && (output.matches('output') || output.tagName === 'STRONG')) { output.value = event.target.value; output.textContent = `${event.target.value}%`; } updateDemandSummary(); const blank = Number.parseInt(($('blankStat') || {}).textContent, 10); if (hasScan && Number.isFinite(blank)) recommend(blank); }));
 updateDemandSummary();
 const printBtn = $('printBtn'); if (printBtn) printBtn.addEventListener('click', () => window.print());

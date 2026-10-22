@@ -1090,6 +1090,16 @@
       font-weight: 700;
     }
 
+    .settings-slider-row { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 12px; align-items: center; }
+    .settings-slider-row > input[type="range"] { width: 100%; accent-color: var(--green); }
+    .settings-switch { display: inline-flex; align-items: center; gap: 7px; color: #4c5952; font-size: 10px; white-space: nowrap; cursor: pointer; }
+    .settings-switch input { position: absolute; opacity: 0; pointer-events: none; }
+    .settings-switch i { position: relative; display: block; width: 31px; height: 17px; border-radius: 999px; background: #cbd2ce; transition: background .2s ease; }
+    .settings-switch i::after { content: ""; position: absolute; width: 13px; height: 13px; top: 2px; left: 2px; border-radius: 50%; background: #fff; box-shadow: 0 1px 3px rgba(0,0,0,.2); transition: transform .2s ease; }
+    .settings-switch input:checked + i { background: var(--green); }
+    .settings-switch input:checked + i::after { transform: translateX(14px); }
+    .settings-switch input:focus-visible + i { outline: 3px solid rgba(53,185,74,.22); outline-offset: 3px; }
+
     #dashboardHome,
     #currentSheetCard,
     #cuttingPlanCard,
@@ -1740,13 +1750,10 @@
         <span>Sticky Notes</span>
         <strong id="stickyValue">90%</strong>
       </label>
-      <input
-        type="range"
-        min="0"
-        max="100"
-        value="90" data-demand="sticky"
-        oninput="updateValue('stickyValue', this.value)"
-      />
+      <div class="settings-slider-row">
+        <input type="range" min="0" max="100" value="90" data-demand="sticky" oninput="updateValue('stickyValue', this.value)" />
+        <label class="settings-switch" for="settingsBlankSticky"><span>Both sides blank</span><input id="settingsBlankSticky" type="checkbox" /><i aria-hidden="true"></i></label>
+      </div>
     </div>
 
     <div class="demand-input">
@@ -1754,13 +1761,10 @@
         <span>Scratch Paper</span>
         <strong id="scratchValue">85%</strong>
       </label>
-      <input
-        type="range"
-        min="0"
-        max="100"
-        value="85" data-demand="scratch"
-        oninput="updateValue('scratchValue', this.value)"
-      />
+      <div class="settings-slider-row">
+        <input type="range" min="0" max="100" value="85" data-demand="scratch" oninput="updateValue('scratchValue', this.value)" />
+        <label class="settings-switch" for="settingsBlankScratch"><span>Both sides blank</span><input id="settingsBlankScratch" type="checkbox" /><i aria-hidden="true"></i></label>
+      </div>
     </div>
 
     <div class="demand-input">
@@ -1768,13 +1772,10 @@
         <span>Memo Sheets</span>
         <strong id="memoValue">55%</strong>
       </label>
-      <input
-        type="range"
-        min="0"
-        max="100"
-        value="55" data-demand="memo"
-        oninput="updateValue('memoValue', this.value)"
-      />
+      <div class="settings-slider-row">
+        <input type="range" min="0" max="100" value="55" data-demand="memo" oninput="updateValue('memoValue', this.value)" />
+        <label class="settings-switch" for="settingsBlankMemo"><span>Both sides blank</span><input id="settingsBlankMemo" type="checkbox" /><i aria-hidden="true"></i></label>
+      </div>
     </div>
 
     <div class="demand-input">
@@ -1782,13 +1783,10 @@
         <span>Flashcards</span>
         <strong id="flashValue">25%</strong>
       </label>
-      <input
-        type="range"
-        min="0"
-        max="100"
-        value="25" data-demand="flashcards"
-        oninput="updateValue('flashValue', this.value)"
-      />
+      <div class="settings-slider-row">
+        <input type="range" min="0" max="100" value="25" data-demand="flashcards" oninput="updateValue('flashValue', this.value)" />
+        <label class="settings-switch" for="settingsBlankFlashcards"><span>Both sides blank</span><input id="settingsBlankFlashcards" type="checkbox" /><i aria-hidden="true"></i></label>
+      </div>
     </div>
 
     <div class="modal-actions">
