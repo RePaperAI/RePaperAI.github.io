@@ -49,16 +49,25 @@ function updateDemandSummary() {
   if (!rows.length) return;
   const top = rows[0];
   const level = top.value >= 70 ? 'High Demand' : top.value >= 40 ? 'Medium Demand' : 'Low Demand';
-  const highDemand = rows.filter(row => row.value >= 70);
-  const displayed = highDemand.length ? highDemand.slice(0, 2) : rows.slice(0, 2);
-  const second = displayed[1];
-  setText('demandSummaryPrimary', labels[top.name]);
-  setText('demandSummarySecondary', second ? labels[second.name] : '');
+  const displayed = rows.filter(row => {
+    const rowLevel = row.value >= 70 ? 'High Demand' : row.value >= 40 ? 'Medium Demand' : 'Low Demand';
+    return rowLevel === level;
+  });
+  const productLine = $('demandSummaryProducts');
+  if (productLine) {
+    productLine.replaceChildren();
+    displayed.forEach((row, index) => {
+      if (index > 0) {
+        const separator = displayed.length === 2 || index === displayed.length - 1 ? (displayed.length > 2 && index === displayed.length - 1 ? ', and ' : ' and ') : ', ';
+        productLine.append(document.createTextNode(separator));
+      }
+      const product = document.createElement('strong');
+      product.className = `demand-summary-product${index === 0 ? ' primary' : ''}`;
+      product.textContent = labels[row.name];
+      productLine.append(product);
+    });
+  }
   setText('demandSummaryLevel', level);
-  const connector = $('demandSummaryConnector');
-  if (connector) connector.hidden = !second;
-  const secondary = $('demandSummarySecondary');
-  if (secondary) secondary.hidden = !second;
 }
 document.querySelectorAll('input[type=range][data-demand]').forEach(input => input.addEventListener('input', event => { const output = event.target.nextElementSibling; if (output && (output.matches('output') || output.tagName === 'STRONG')) { output.value = event.target.value; output.textContent = `${event.target.value}%`; } updateDemandSummary(); const blank = Number.parseInt(($('blankStat') || {}).textContent, 10); if (hasScan && Number.isFinite(blank)) recommend(blank); }));
 updateDemandSummary();
