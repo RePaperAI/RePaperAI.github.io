@@ -988,12 +988,14 @@
     .analysis-layout .legend-dot { width: 16px; height: 16px; border-radius: 3px; }
     .analysis-layout .legend-item > span:last-child { font-weight: 700; color: #151a17; }
     .paper { min-height: 0; height: auto; aspect-ratio: 987 / 1457; align-self: start; padding: 0; border: 0; border-radius: 0; background: transparent; }
+    /* Change width/height here to resize the original worksheet in Current Sheet Analysis. */
     .worksheet-image { position: relative; inset: auto; display: block; width: 100%; height: 100%; object-fit: contain; background: #fff; z-index: 5; }
     .worksheet-image.missing { display: none; }
     .paper:has(.worksheet-image:not(.missing)) > :not(.worksheet-image) { display: none; }
     .cutting-plan { padding: 8px; background: #f7f8f7; }
     .cutting-plan { background: #fff; border: 0; border-radius: 0; overflow: visible; }
-    .cutting-plan-image { display: block; box-sizing: border-box; width: min(270px, 100%); max-width: 100%; max-height: 350px; height: auto; object-fit: contain; position: relative; z-index: 5; margin: 0 auto; border: 0; }
+    /* Change width and max-height here to resize the cutting-plan preview image. */
+    .cutting-plan-image { display: block; box-sizing: border-box; width: min(285px, 100%); max-width: 100%; max-height: 370px; height: auto; object-fit: contain; position: relative; z-index: 5; margin: 0; border: 0; }
     .cutting-plan-image.missing { display: none; }
     .cutting-plan:has(.cutting-plan-image:not(.missing)) > .cut-sheet { display: none; }
     .cutting-plan:has(.cutting-plan-image:not(.missing)) { padding: 0; }
@@ -1143,8 +1145,9 @@
     @media (min-width: 1251px) {
       .analysis-layout { grid-template-columns: 280px minmax(0, 1fr); }
       .paper { width: 280px; height: 416px; aspect-ratio: auto; }
+      /* Desktop overrides: adjust these values if the images need different desktop sizes. */
       .worksheet-image { width: 100%; height: 100%; }
-      .cutting-plan-image { width: min(270px, 100%); max-width: 100%; max-height: 350px; }
+      .cutting-plan-image { width: min(285px, 100%); max-width: 100%; max-height: 370px; }
       .card-title h2 { font-size: 15px; }
       .metric-label { font-size: 12px; }
       .legend { font-size: 11px; }
