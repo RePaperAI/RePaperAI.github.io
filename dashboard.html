@@ -537,7 +537,7 @@
 
     .cut-summary {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(4, 1fr);
       gap: 8px;
       margin-top: 12px;
     }
@@ -993,7 +993,7 @@
     .paper:has(.worksheet-image:not(.missing)) > :not(.worksheet-image) { display: none; }
     .cutting-plan { padding: 8px; background: #f7f8f7; }
     .cutting-plan { background: #fff; border: 0; border-radius: 0; overflow: visible; }
-    .cutting-plan-image { display: block; width: min(270px, 100%); max-width: 100%; max-height: none; height: auto; object-fit: contain; position: relative; z-index: 5; margin: 0 auto; border: 3px solid #111; }
+    .cutting-plan-image { display: block; box-sizing: border-box; width: min(270px, 100%); max-width: 100%; max-height: 350px; height: auto; object-fit: contain; position: relative; z-index: 5; margin: 0 auto; border: 3px solid #111; }
     .cutting-plan-image.missing { display: none; }
     .cutting-plan:has(.cutting-plan-image:not(.missing)) > .cut-sheet { display: none; }
     .cutting-plan:has(.cutting-plan-image:not(.missing)) { padding: 0; }
@@ -1003,7 +1003,7 @@
     .cutting-plan:has(.cutting-plan-image:not(.missing)) .cut-summary div:last-child { border-right: 0; }
     .cutting-plan:has(.cutting-plan-image:not(.missing)) .cut-summary {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(4, 1fr);
       gap: 0;
       background: #fff;
       border-radius: 0 0 9px 9px;
@@ -1011,22 +1011,28 @@
     }
     .cutting-plan:has(.cutting-plan-image:not(.missing)) .cut-summary div {
       display: flex;
+      flex-direction: column;
       align-items: center;
       justify-content: center;
-      gap: 4px;
-      min-height: 46px;
+      gap: 3px;
+      min-width: 0;
+      min-height: 54px;
+      padding: 4px 1px;
     }
     .cutting-plan:has(.cutting-plan-image:not(.missing)) .cut-summary strong {
-      font-size: 32px;
+      font-size: 27px;
       line-height: .9;
       font-weight: 500;
     }
     .cutting-plan:has(.cutting-plan-image:not(.missing)) .cut-summary span {
       color: #202522;
-      font-size: 10px;
+      font-size: 8px;
       line-height: 1.15;
       margin: 0;
-      white-space: nowrap;
+      max-width: 100%;
+      text-align: center;
+      white-space: normal;
+      overflow-wrap: anywhere;
     }
     .cut-sheet { border: 0; background: #f64251; }
     .cut-piece { background: #5acb57; border: 1px solid #277c32; color: #155d22; }
@@ -1138,7 +1144,7 @@
       .analysis-layout { grid-template-columns: 280px minmax(0, 1fr); }
       .paper { width: 280px; height: 416px; aspect-ratio: auto; }
       .worksheet-image { width: 100%; height: 100%; }
-      .cutting-plan-image { width: min(270px, 100%); max-width: 100%; max-height: none; }
+      .cutting-plan-image { width: min(270px, 100%); max-width: 100%; max-height: 350px; }
       .card-title h2 { font-size: 15px; }
       .metric-label { font-size: 12px; }
       .legend { font-size: 11px; }
@@ -1301,7 +1307,7 @@
 
             <div class="paper">
 
-              <img class="worksheet-image" src="Assets/Sample_Worksheetpng.png" alt="Order of Operations worksheet" onerror="this.classList.add('missing')" />
+              <img class="worksheet-image" src="Assets/Sample_Worksheet.png" alt="Understanding Simple Fractions worksheet" onerror="this.classList.add('missing')" />
 
               <div class="paper-header">
                 <span>Name: __________</span>
@@ -1456,13 +1462,18 @@
               </div>
 
               <div>
-                <strong style="color:#d29d00;">2</strong>
-                <span>Memo Sheets</span>
+                <strong style="color:#d29d00;">1</strong>
+                <span>Memo Sheet</span>
               </div>
 
               <div>
                 <strong style="color:#3478d4;">1</strong>
                 <span>Scratch Sheet</span>
+              </div>
+
+              <div>
+                <strong style="color:#8c4cc2;">1</strong>
+                <span>Flashcard</span>
               </div>
 
             </div>
