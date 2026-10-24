@@ -993,7 +993,7 @@
     .paper:has(.worksheet-image:not(.missing)) > :not(.worksheet-image) { display: none; }
     .cutting-plan { padding: 8px; background: #f7f8f7; }
     .cutting-plan { background: #fff; border: 0; border-radius: 0; overflow: visible; }
-    .cutting-plan-image { display: block; box-sizing: border-box; width: min(270px, 100%); max-width: 100%; max-height: 350px; height: auto; object-fit: contain; position: relative; z-index: 5; margin: 0 auto; border: 3px solid #111; }
+    .cutting-plan-image { display: block; box-sizing: border-box; width: min(270px, 100%); max-width: 100%; max-height: 350px; height: auto; object-fit: contain; position: relative; z-index: 5; margin: 0 auto; border: 0; }
     .cutting-plan-image.missing { display: none; }
     .cutting-plan:has(.cutting-plan-image:not(.missing)) > .cut-sheet { display: none; }
     .cutting-plan:has(.cutting-plan-image:not(.missing)) { padding: 0; }
@@ -1080,7 +1080,7 @@
       .sidebar { width: 182px; top: 90px; bottom: 0; height: calc(100vh - 90px); }
       .main { margin-left: 182px; width: calc(100% - 182px); padding-top: 90px; }
       .topbar { position: fixed; inset: 0 0 auto 0; z-index: 9; height: 90px; padding: 0 31px; }
-      .grid { grid-template-rows: 482px; }
+      .grid { grid-template-rows: auto; }
       .lower { height: 257px; grid-template-columns: 1.6fr 1fr; }
     }
 
